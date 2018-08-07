@@ -5,18 +5,14 @@ import com.Interview.WebTestapplication.candidate.Entity.User;
 import com.Interview.WebTestapplication.candidate.Repository.POCRepository;
 import com.Interview.WebTestapplication.candidate.Repository.UserRepository;
 import com.Interview.WebTestapplication.candidate.Services.LoginService;
-import com.Interview.WebTestapplication.candidate.Services.UserService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiOperation;
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,13 +44,13 @@ public class LoginController {
 
   @ApiOperation(value = "Find by user name",response = String.class)
   @RequestMapping(value = "/findbyusername", method= RequestMethod.GET,produces = {"text/plain", "application/*"})
-    public String findByUsername(@RequestParam("username") String username){
-        String result = "";
+    public ModelAndView findByUsername(@RequestParam("username") String username){
 
-        for(User users: repository.findByUserName(username)){
-            result += users.toString() + "<br>";
-        }
-        return result;
+    List<User> all = repository.findByUserName(username);
+    ModelAndView modelAndView =new ModelAndView();
+    modelAndView.addObject("allCandidates",  all);
+    modelAndView.setViewName("Results");
+    return modelAndView;
     }
 
 
@@ -95,24 +91,29 @@ public class LoginController {
 
   @ApiOperation(value = "Find by user's full name",response = String.class)
   @RequestMapping(value = "/findbyFullname", method= RequestMethod.GET,produces = {"text/plain", "application/*"})
-    public String findByFullName(@RequestParam("fullname") String fullname){
-        String result = "";
-        for(POC poc: pocrepo.findByFullName(fullname)){
-            result += poc.toString() + "<br>";
-        }
-        return result ;
+    public ModelAndView findByFullName(@RequestParam("fullname") String fullname){
+    List<POC> allCandidates = new ArrayList<>();
+    Iterable<POC> all = pocrepo.findByFullName(fullname);
+    all.forEach(allCandidates::add);
+    ModelAndView modelAndView =new ModelAndView();
+    modelAndView.addObject("allCandidates",  allCandidates);
+    modelAndView.setViewName("Results");
+    return modelAndView;
     }
 
 
   @ApiOperation(value = "Find all user names",response = String.class)
-  @RequestMapping(value = "/findAll", method= RequestMethod.GET,produces = {"text/plain", "application/*"})
-    public String findAll() throws InterruptedException {
-//        Thread.sleep(5000);
-       String result = "";
-        for (POC poc : pocrepo.findAll()) {
-               result += poc.toString() ;
-        }
-    return result;
+  @RequestMapping(value = "/findAll", method= RequestMethod.GET
+      ,produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+  @ResponseBody
+    public ModelAndView findAll() throws InterruptedException {
+    List<POC> allCandidates = new ArrayList<>();
+    Iterable<POC> all = pocrepo.findAll();
+    all.forEach(allCandidates::add);
+    ModelAndView modelAndView =new ModelAndView();
+    modelAndView.addObject("allCandidates",  allCandidates);
+    modelAndView.setViewName("Results");
+    return modelAndView;
   }
 
   @ApiOperation(value = "Find by Services",response = String.class)
@@ -124,9 +125,10 @@ public class LoginController {
 
   @ApiOperation(value = "Find by Id",response = String.class)
   @RequestMapping(value = "/findById", method= RequestMethod.GET,produces = {"text/plain", "application/*"})
-    public String findById(@RequestParam("id") String id) {
-         String result = "";
-        return result;
+    public ModelAndView findById(@RequestParam("id") String id) {
+    ModelAndView modelAndView =new ModelAndView();
+    modelAndView.setViewName("BlankPage");
+    return modelAndView;
     }
 
 

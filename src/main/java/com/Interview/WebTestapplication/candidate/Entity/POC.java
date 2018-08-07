@@ -83,6 +83,6 @@ public class POC {
     public String toString() {
         return "{" + "userId=" + userId + ", fullName='" + fullName + '\'' + ", designation='"
             + designation + '\'' + ", service='" + service + '\'' + ", reportingManager='"
-            + reportingManager + '\'' + '}'+"\n";
+            + reportingManager + '\'' + '}';
     }
 }

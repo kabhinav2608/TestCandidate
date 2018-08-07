@@ -46,20 +46,22 @@
             </form>
         </div>
 
-         <div class="service-name-container">
+        <div class="service-name-container">
+             <form action="/candidateTesting/findById" method="get">
+                 <label class="findByIdLabel" for="FindByName">FindById</label>
+                 <input type="text" name="id" id="FindById" />
+                 <button type="submit" class="findById">FindById</button>
+             </form>
+        </div>
+
+<div class="service-name-container">
             <form action="/candidateTesting/findAll" method="get">
                 <label class="findAllLabel">FindAll</label>
                 <button type="submit" class="findAllBtn">FindAll</button>
             </form>
         </div>
 
-        <div class="service-name-container">
-             <form action="/candidateTesting/findById" method="get">
-                 <label class="findByIdLabel">FindById</label>
-                 <button type="submit" class="findById">FindById</button>
-             </form>
-        </div>
-
     </div>
+    <script type=""
 </body>
 </html>

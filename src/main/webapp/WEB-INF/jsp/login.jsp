@@ -83,7 +83,7 @@
 	</div>
 
 <!--===============================================================================================-->
-	<script src="/css/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/css/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/css/bootstrap/js/popper.js"></script>
 	<script src="/css/bootstrap/js/bootstrap.min.js"></script>
