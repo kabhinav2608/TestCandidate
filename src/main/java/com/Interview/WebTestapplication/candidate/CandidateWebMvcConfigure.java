@@ -24,3 +24,5 @@ public class CandidateWebMvcConfigure extends WebMvcConfigurationSupport {
     }
 
 }
+
+

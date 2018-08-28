@@ -28,9 +28,9 @@ public abstract class CandidateApplication extends SpringBootServletInitializer 
 		return application.sources(CandidateApplication.class);
 	}
 
-
+    @Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/");
 	}
 
 	public static void main(String[] args) {

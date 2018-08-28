@@ -4,14 +4,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="/css/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -32,7 +32,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="/css/images/img-01.png" alt="IMG">
+					<img src="css/images/img-01.png" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form" method="get" action="welcome">
